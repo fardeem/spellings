@@ -99,11 +99,11 @@ class App extends Component {
         </form>
 
         {hasAnswered ? <div className="feedback">
-          <div className="next" onClick={this.next}>→</div>
           <h1>
             That was {isCorrect ? 'correct' : 'incorrect'}.
             {! isCorrect ? ` The right spelling was ${data[index].fields.Name}.` : ''}
           </h1>
+          <div className="next" onClick={this.next}>Next Word →</div>
         </div> : null}
       </div>
     ) : null;

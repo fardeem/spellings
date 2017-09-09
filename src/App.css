@@ -7,7 +7,7 @@ body {
 .container {
   width: 90%;
   max-width: 1000px;
-  margin: 10em auto;
+  margin: 4em auto;
   opacity: 0;
   transition: opacity .4s;
 }
@@ -100,14 +100,14 @@ body {
   }
 
 .next {
-  position: absolute;
-  font-size: 1rem;
+  font-size: 1.5rem;
   cursor: pointer;
   top: 10%;
   color: white;
   background: rgba(0, 0, 0, 0.4);
   padding: 1em;
   right: 0;
+  float: right;
 }
 
 .counter {
