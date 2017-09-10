@@ -103,8 +103,8 @@ class App extends Component {
 
         {hasAnswered ? <div className="feedback">
           <h1>
-            That was {isCorrect ? 'correct' : 'incorrect'}.
-            {! isCorrect ? ` The right spelling was ${data[index].fields.Name}.` : ''}
+            That was {isCorrect ? 'correct' : 'incorrect. You dummy!'}.
+            {! isCorrect ? <DiffSpelling word={doc.fields.Name} answer={answer} /> : ''}
           </h1>
           <div className="next" onClick={this.next}>Next Word →</div>
         </div> : null}
@@ -113,6 +113,19 @@ class App extends Component {
   }
 }
 
-
+const DiffSpelling = ({ word, answer }) => (
+  <div>
+    The right spelling was<span>&nbsp;</span>
+    {word.split('').map( (char, index) => {
+      if (char === answer[index]) {
+        return { char };
+      } else {
+        return { char, flagged: true };
+      }
+    }).map( (letter, i) => (
+      <span key={i} className={'status-' + (letter.flagged || '')}>{letter.char}</span>
+    ))}
+  </div>
+);
 
 export default App;
