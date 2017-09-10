@@ -7,9 +7,9 @@ import './App.css';
 import Sound from './sound.js';
 import { airtable } from './settings.js';
 
+const endpoint = `https://api.airtable.com/v0/${airtable.id}/${airtable.table}?view=Grid%20view&api_key=${airtable.key}`;
 
 
-const endpoint = `https://api.airtable.com/v0/${airtable.id}/main?view=Grid%20view&api_key=${airtable.key}`;
 
 class App extends Component {
   constructor() {
