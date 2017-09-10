@@ -42,6 +42,9 @@ class App extends Component {
     const { data, index, answer } = this.state;
     const record = data[index];
 
+    if (answer.trim().length === 0)
+      return;
+
     let correct = record.fields.correct || 0;
     let attempts = record.fields.attempts + 1 || 1;
     
