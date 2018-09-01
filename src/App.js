@@ -95,7 +95,7 @@ class App extends Component {
 
     return ! isLoading ? (
       <div className={`container ${ isLoading ? 'loading' : 'loaded'}`}>
-        <p className="counter">Spelling #{index + 1}</p>
+        <p className="counter">Spelling &nbsp; {index + 1} / {data.length}</p>
         <Sound word={doc.fields.Name} />
         
         <form onSubmit={this.submitAnswer}>
