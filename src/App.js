@@ -35,6 +35,12 @@ class App extends Component {
       });
       this.setState({ data: shuffle(data), isLoading: false });
     });
+
+    document.onkeydown = (e) => {
+      if (e.which === 39 && this.state.hasAnswered) {
+        this.next();
+      }
+    }
   }
 
   submitAnswer(e) {

@@ -10,6 +10,14 @@ class Sound extends Component {
     this.playSound = this.playSound.bind(this);
   }
   
+  componentDidMount() {
+    document.onkeyup = (e) => {
+      if (e.which === 80 && e.shiftKey) {
+        this.playSound();
+      }
+    }
+  }
+
   playSound() {
     this.setState({ isPaused: true });
     const msg = new SpeechSynthesisUtterance(this.props.word);
@@ -19,6 +27,7 @@ class Sound extends Component {
     msg.onend = () => {
       this.setState({ isPaused: false });
     };
+
     speechSynthesis.speak(msg);    
   }
 
