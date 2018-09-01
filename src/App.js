@@ -109,7 +109,7 @@ class App extends Component {
             type="text"
             className="input input--answer"
             value={answer}
-            onChange={(e) => this.setState({ answer: e.target.value })} />{/*
+            onChange={(e) => this.setState({ answer: e.target.value.trim().toLowerCase() })} />{/*
           */}<input type="submit" {...btnState} className="input input--submit" />
         </form>
 
