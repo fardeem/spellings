@@ -72,14 +72,20 @@ class App extends Component {
   }
 
   next() {
-    const { index } = this.state;
+    const { index, data } = this.state;
     
+    let nextNum = index + 1 < data.length ? index + 1 : 0;
+
     this.setState({
-      index: index + 1,
+      index: nextNum,
       hasAnswered: false,
       answer: '',
       isCorrect: false
     });
+
+    if (nextNum === 0) {
+      this.setState({ data: shuffle(data) });
+    }
   }
 
   render() {
