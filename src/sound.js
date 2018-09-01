@@ -13,6 +13,9 @@ class Sound extends Component {
   playSound() {
     this.setState({ isPaused: true });
     const msg = new SpeechSynthesisUtterance(this.props.word);
+    
+    msg.rate = 0.8;
+    msg.pitch = 1.2;
     msg.onend = () => {
       this.setState({ isPaused: false });
     };
