@@ -1,127 +1,24 @@
-@import url("https://fonts.googleapis.com/css?family=Encode+Sans+Condensed");
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Montserrat", sans-serif;
+  background: #f5f5f5 url("/assets/practice.png") no-repeat;
+  background-size: 200px;
+  background-position-x: center;
+  background-position-y: bottom;
+  min-height: 100vh;
+}
+
 body {
-  background: linear-gradient(to right, #fd746c, #ff9068);
-  font-family: 'Encode Sans Condensed', sans-serif;
+  margin: 0;
+  padding: 0;
 }
 
 .container {
-  width: 90%;
+  width: 100%;
   max-width: 1000px;
-  margin: 6em auto;
-  opacity: 0;
-  transition: opacity .4s;
-}
-
-
-.loaded {
-  opacity: 1;
-}
-
-
-.input {
-  border: 0;
-  display: inline-block;
-  border: 4px solid rgba(255, 255, 255, 0.8);
-  margin-top: 3em;
-  padding: .6em;
-  background: transparent;
-  color: white;
-  box-sizing: border-box;
-  transition: border-color .4s;
-  font-size: 1.5em;
-  font-family: inherit;
-}
-
-.input--answer {
-  width: 75%;
-  margin-right: 5%;
-}
-
-  .input--answer:focus {
-    outline: 0;
-    border-color: rgb(80, 80, 80);
-  }
-
-.input--submit {
-  width: 20%;
-  background: white;
-  color: #333;
-  cursor: pointer;
-  border: 4px solid transparent;
-}
-  
-  .input--submit:hover {
-    border-color: rgba(80,80,80,1);
-  }
-
-
-
-
-.sound {
-  position: relative;
-  width: 100px;
-  height: 100px;
-  display: block;
-  border: 3.33333px solid #fff;
-  border-radius: 50%;
-  padding: 0;
-  cursor: pointer;
-  user-select: none;
-}
-
-  .sound__icon {
-    box-sizing: border-box;
-    display: block;
-    position: absolute;
-    transition: all 0.2s ease;
-    width: 25px;
-    height: 50px;
-    transform: translateX(38.46154px);
-    top: 25px;
-    border-top: 0 solid transparent;
-    border-right: 8.33333px solid #fff;
-    border-bottom: 0 solid transparent;
-    border-left: 8.33333px solid #fff;
-  }
-
-  .sound.is-play .sound__icon {
-    transform: translateX(43.47826px);
-    border-top: 25px solid transparent;
-    border-right: 0px solid transparent;
-    border-bottom: 25px solid transparent;
-    border-left: 25px solid #fff;
-  }
-
-
-
-
-.feedback {
-  margin-top: 3em;
-  color: white;
-  font-size: 1.5em;
-}
-
-  .feedback h1 {
-    font-weight: normal;
-  }
-
-  .status-true {
-    color: #961249;
-  }
-
-.next {
-  font-size: 1.5rem;
-  cursor: pointer;
-  top: 10%;
-  color: white;
-  background: rgba(0, 0, 0, 0.4);
-  padding: 1em;
-  right: 0;
-  float: right;
-}
-
-.counter {
-  text-align: right;
-  font-size: 1.5em;
-  float: right;
+  padding: 0 2em;
+  margin: 4em auto;
 }

@@ -1,0 +1,46 @@
+.control {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.counter {
+  font-size: 1.2rem;
+}
+
+.sound {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  display: block;
+  border: 3.33333px solid black;
+  border-radius: 50%;
+  padding: 0;
+  margin-right: 2rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.sound__icon {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  transition: all 0.2s ease;
+  width: 25px;
+  height: 50px;
+  transform: translateX(35px);
+
+  top: 25px;
+  border-top: 0 solid transparent;
+  border-right: 8.33333px solid black;
+  border-bottom: 0 solid transparent;
+  border-left: 8.33333px solid black;
+}
+
+.sound.is-paused .sound__icon {
+  transform: translateX(38.46154px);
+  border-top: 25px solid transparent;
+  border-right: 0px solid transparent;
+  border-bottom: 25px solid transparent;
+  border-left: 25px solid black;
+}
