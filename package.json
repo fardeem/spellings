@@ -5,11 +5,12 @@
   "dependencies": {
     "axios": "^0.16.2",
     "lodash": "^4.17.4",
-    "react": "^15.6.1",
-    "react-dom": "^15.6.1"
+    "react": "16.9.0",
+    "react-dom": "16.9.0",
+    "titanic-icons": "^1.2.0"
   },
   "devDependencies": {
-    "react-scripts": "1.0.13"
+    "react-scripts": "3.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -17,5 +18,17 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "deploy": "npm build && cd build && now --public && now alias"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
   }
 }
