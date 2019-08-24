@@ -1,17 +1,25 @@
 import React from "react";
+import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+
+import Practice from "./pages/Practice";
 
 import "./App.css";
 
-import Player from "./components/Player";
-import Form from "./components/Form";
+const Stats = () => <h1>Hello World</h1>;
 
 const App = () => {
   return (
-    <div className="container">
-      <Player word="Extravagance" />
+    <Router>
+      <main className="container">
+        <nav>
+          <Link to="/">Practice</Link>
+          <Link to="/stats">Stats</Link>
+        </nav>
 
-      <Form />
-    </div>
+        <Route exact path="/" component={Practice} />
+        <Route path="/stats" component={Stats} />
+      </main>
+    </Router>
   );
 };
 
