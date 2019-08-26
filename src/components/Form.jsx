@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef, useCallback } from "react";
 
+import Sound from "./Player";
 
 import styles from "./Form.module.css";
 
@@ -55,6 +56,10 @@ const Form = ({ word, next }) => {
   return (
     <div>
       <form className={styles.form} onSubmit={handleSubmit}>
+        <Sound
+          word={word}
+        />
+
         <input
           type="text"
           className={styles.input}
