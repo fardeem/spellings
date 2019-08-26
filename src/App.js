@@ -1,6 +1,7 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
+import { StoreProvider } from "./store";
 import Header from "./components/Header";
 import Practice from "./pages/Practice";
 
@@ -11,12 +12,14 @@ const Stats = () => <h1>Hello World</h1>;
 const App = () => {
   return (
     <Router>
-      <main className="container">
-        <Header />
+      <StoreProvider>
+        <main className="container">
+          <Header />
 
-        <Route exact path="/" component={Practice} />
-        <Route path="/stats" component={Stats} />
-      </main>
+          <Route exact path="/" component={Practice} />
+          <Route path="/stats" component={Stats} />
+        </main>
+      </StoreProvider>
     </Router>
   );
 };
