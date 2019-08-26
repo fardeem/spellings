@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import Feedback from "./Feedback";
 
 import styles from "./Form.module.css";
 
@@ -62,7 +61,17 @@ const Form = ({ word, next }) => {
 
       {showAnswer && (
         <section>
-          <Feedback word={word} answer={input} />
+          <div className={styles.feedback}>
+            <h2>
+              {answer.toLowerCase() === word.toLowerCase() ? (
+                "Correct!"
+              ) : (
+                <>
+                  Wrong! <br /> Correct spelling: <b>{word}</b>
+                </>
+              )}
+            </h2>
+          </div>
 
           <div className={styles.feedbackBtnArea}>
             <button className={styles.btn} onClick={nextWord}>
