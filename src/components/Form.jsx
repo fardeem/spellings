@@ -3,15 +3,15 @@ import React, { useState, useEffect, useRef } from "react";
 import styles from "./Form.module.css";
 
 const Form = ({ word, next }) => {
-  const [input, setInput] = useState("");
+  const [answer, setAnswer] = useState("");
   const [showAnswer, setShowAnswer] = useState(false);
 
   const inputEl = useRef(null);
 
   function nextWord() {
-    setInput("");
-    setShowAnswer(false);
     next();
+      setAnswer("");
+      setShowAnswer(false);
   }
 
   useEffect(() => {
@@ -51,8 +51,8 @@ const Form = ({ word, next }) => {
         <input
           type="text"
           className={styles.input}
-          value={input}
-          onChange={e => setInput(e.target.value)}
+          value={answer}
+          onChange={e => setAnswer(e.target.value.trim().toLowerCase())}
           disabled={showAnswer}
           ref={inputEl}
         />
