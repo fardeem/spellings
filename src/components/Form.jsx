@@ -7,13 +7,14 @@ import styles from "./Form.module.css";
 const Form = ({ word, next }) => {
   const [answer, setAnswer] = useState("");
   const [showAnswer, setShowAnswer] = useState(false);
-
+  const [startTime, setStartTime] = useState(0);
   const inputEl = useRef(null);
 
   const nextWord = useCallback(
     function nextWord() {
       setAnswer("");
       setShowAnswer(false);
+      setStartTime(0);
       document.body.classList.remove("right");
       document.body.classList.remove("wrong");
       next();
@@ -58,6 +59,7 @@ const Form = ({ word, next }) => {
       <form className={styles.form} onSubmit={handleSubmit}>
         <Sound
           word={word}
+          start={() => startTime === 0 && setStartTime(Date.now())}
         />
 
         <input

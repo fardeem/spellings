@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import styles from "./Player.module.css";
 
-const Sound = ({ word }) => {
+const Sound = ({ word, start }) => {
   const [isPlaying, setIsPlaying] = useState(false);
 
   function playSound() {
@@ -14,6 +14,7 @@ const Sound = ({ word }) => {
     };
 
     speechSynthesis.speak(msg);
+    start();
   }
 
   useEffect(() => {
