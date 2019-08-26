@@ -1,0 +1,27 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  padding: 2em 0;
+  margin-bottom: 2em;
+}
+
+.logo {
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.navItem {
+  display: inline-block;
+  text-decoration: none;
+  margin-left: 2em;
+  color: #00000050;
+  text-transform: capitalize;
+  transition: color 0.5s;
+}
+
+.navItem:hover,
+.navActive {
+  color: #000000;
+}

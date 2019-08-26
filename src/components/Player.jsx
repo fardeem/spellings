@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Player.css";
+import styles from "./Player.module.css";
 
 const Sound = ({ word }) => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -17,11 +17,11 @@ const Sound = ({ word }) => {
   }
 
   return (
-    <div className="control">
-      <div className={`sound ${!isPlaying && "is-paused"}`} onClick={playSound}>
-        <div className="sound__icon" />
-      </div>
-      <p className="counter">Spelling 1 of 10</p>
+    <div
+      className={`${styles.sound} ${!isPlaying && styles.isPaused}`}
+      onClick={playSound}
+    >
+      <div className={styles.soundIcon} />
     </div>
   );
 };

@@ -1,0 +1,39 @@
+.sound {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  display: block;
+  border: 2px solid black;
+  border-radius: 50%;
+  padding: 0;
+  margin-right: 2rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.soundIcon {
+  box-sizing: border-box;
+  display: block;
+  position: absolute;
+  transition: all 0.2s ease;
+  width: 15px;
+  height: 25px;
+
+  transform: translate(16px, 11px);
+
+  /* Pause Button */
+  border-top: 0 solid transparent;
+  border-right: 3px solid black;
+  border-bottom: 0 solid transparent;
+  border-left: 3px solid black;
+}
+
+/* Play Button */
+.sound.isPaused .soundIcon {
+  transform: translate(18px, 8px);
+
+  border-top: 15px solid transparent;
+  border-right: 0px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 15px solid black;
+}

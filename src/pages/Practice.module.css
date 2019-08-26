@@ -1,0 +1,19 @@
+.control {
+  display: flex;
+  justify-content: space-between;
+}
+
+.metaPanel {
+  display: flex;
+  align-items: center;
+}
+
+.select {
+  background: transparent;
+  border-color: #00000033;
+  font-size: 1em;
+}
+
+.selectLabel {
+  margin-left: 2em;
+}

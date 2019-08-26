@@ -1,6 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
+import Header from "./components/Header";
 import Practice from "./pages/Practice";
 
 import "./App.css";
@@ -11,10 +12,7 @@ const App = () => {
   return (
     <Router>
       <main className="container">
-        <nav>
-          <Link to="/">Practice</Link>
-          <Link to="/stats">Stats</Link>
-        </nav>
+        <Header />
 
         <Route exact path="/" component={Practice} />
         <Route path="/stats" component={Stats} />
