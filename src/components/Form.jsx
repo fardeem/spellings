@@ -1,45 +1,76 @@
-import React, { useState, useEffect } from "react";
-import "./Form.css";
+import React, { useState, useEffect, useRef } from "react";
 import Feedback from "./Feedback";
 
-const Form = ({ word }) => {
+import styles from "./Form.module.css";
+
+const Form = ({ word, next }) => {
   const [input, setInput] = useState("");
   const [showAnswer, setShowAnswer] = useState(false);
 
+  const inputEl = useRef(null);
+
+  function nextWord() {
+    setInput("");
+    setShowAnswer(false);
+    next();
+  }
+
   useEffect(() => {
-    if (!showAnswer) return;
-    window.addEventListener("keyup", e => {
-      console.log(e);
-    });
-  }, [showAnswer]);
+    function bindKeys(e) {
+      if (e.target === inputEl.current) return;
+      if (!showAnswer) return;
+
+      if (e.key === "n" || e.key === "ArrowRight") nextWord();
+    }
+
+    window.addEventListener("keyup", bindKeys);
+
+    return () => {
+      window.removeEventListener("keyup", bindKeys);
+    };
+  }, [showAnswer, nextWord]);
+
+  useEffect(() => {
+    document.body.classList.remove("right");
+    document.body.classList.remove("wrong");
+  }, [word]);
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    setShowAnswer(true);
+
+    if (input.toLowerCase() === word.toLowerCase()) {
+      document.body.classList.add("right");
+    } else {
+      document.body.classList.add("wrong");
+    }
+  }
 
   return (
     <div>
-      <form
-        className="form"
-        onSubmit={e => {
-          e.preventDefault();
-          setShowAnswer(true);
-          // setInput("");
-
-          if (input.toLowerCase() === word.toLowerCase()) {
-            document.body.classList.add("right");
-          } else {
-            document.body.classList.add("wrong");
-          }
-        }}
-      >
+      <form className={styles.form} onSubmit={handleSubmit}>
         <input
           type="text"
-          className="form__input form__input--answer"
+          className={styles.input}
           value={input}
           onChange={e => setInput(e.target.value)}
           disabled={showAnswer}
+          ref={inputEl}
         />
-        <input type="submit" className="form__input form__input--submit" />
+        <input type="submit" className={styles.btn} />
       </form>
 
-      {showAnswer && <Feedback word={word} answer={input} />}
+      {showAnswer && (
+        <section>
+          <Feedback word={word} answer={input} />
+
+          <div className={styles.feedbackBtnArea}>
+            <button className={styles.btn} onClick={nextWord}>
+              Next
+            </button>
+          </div>
+        </section>
+      )}
     </div>
   );
 };

@@ -32,3 +32,8 @@ body.right {
   padding: 0 2em;
   margin: 0 auto;
 }
+
+.space {
+  display: flex;
+  justify-content: space-between;
+}

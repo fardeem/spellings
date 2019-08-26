@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styles from "./Player.module.css";
 
 const Sound = ({ word }) => {
@@ -15,6 +15,20 @@ const Sound = ({ word }) => {
 
     speechSynthesis.speak(msg);
   }
+
+  useEffect(() => {
+    function bindKeys(e) {
+      if (e.target !== document.body) return;
+
+      if (e.key === " ") playSound();
+    }
+
+    window.addEventListener("keyup", bindKeys);
+
+    return () => {
+      window.removeEventListener("keyup", bindKeys);
+    };
+  });
 
   return (
     <div
