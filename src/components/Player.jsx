@@ -18,9 +18,7 @@ const Sound = ({ word }) => {
 
   useEffect(() => {
     function bindKeys(e) {
-      if (e.target !== document.body) return;
-
-      if (e.key === " ") playSound();
+      if (e.target === document.body && e.key === " ") playSound();
     }
 
     window.addEventListener("keyup", bindKeys);
