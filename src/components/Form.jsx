@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
+
 
 import styles from "./Form.module.css";
 
@@ -8,17 +9,39 @@ const Form = ({ word, next }) => {
 
   const inputEl = useRef(null);
 
-  function nextWord() {
-    next();
+  const nextWord = useCallback(
+    function nextWord() {
       setAnswer("");
       setShowAnswer(false);
+      document.body.classList.remove("right");
+      document.body.classList.remove("wrong");
+      next();
+    },
+    [next]
+  );
+
+  function handleSubmit(e) {
+    e.preventDefault();
+    setShowAnswer(true);
+
+    const isCorrect = answer === word;
+
+    if (isCorrect) {
+      document.body.classList.add("right");
+    } else {
+      document.body.classList.add("wrong");
+    }
+
+    console.log({
+      word,
+      isCorrect,
+      time: Date.now() - startTime
+    });
   }
 
   useEffect(() => {
     function bindKeys(e) {
-      if (e.target === inputEl.current) return;
-      if (!showAnswer) return;
-
+      if (e.target === inputEl.current || !showAnswer) return;
       if (e.key === "n" || e.key === "ArrowRight") nextWord();
     }
 
@@ -28,22 +51,6 @@ const Form = ({ word, next }) => {
       window.removeEventListener("keyup", bindKeys);
     };
   }, [showAnswer, nextWord]);
-
-  useEffect(() => {
-    document.body.classList.remove("right");
-    document.body.classList.remove("wrong");
-  }, [word]);
-
-  function handleSubmit(e) {
-    e.preventDefault();
-    setShowAnswer(true);
-
-    if (input.toLowerCase() === word.toLowerCase()) {
-      document.body.classList.add("right");
-    } else {
-      document.body.classList.add("wrong");
-    }
-  }
 
   return (
     <div>
