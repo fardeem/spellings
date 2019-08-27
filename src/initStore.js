@@ -41,7 +41,5 @@ export default {
     "solitary",
     "tremble"
   ],
-  stats: {
-    monarch: [{ isCorrect: true }]
-  }
+  stats: {}
 };

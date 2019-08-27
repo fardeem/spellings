@@ -1,6 +1,6 @@
 import React, { createContext, useReducer } from "react";
 
-import sampleStore from "./storeInit.js";
+import initialStore from "./initStore";
 
 const StoreContext = createContext({
   words: [],
