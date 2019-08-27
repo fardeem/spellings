@@ -10,18 +10,6 @@ const Form = ({ word, next }) => {
   const [startTime, setStartTime] = useState(0);
   const inputEl = useRef(null);
 
-  const nextWord = useCallback(
-    function nextWord() {
-      setAnswer("");
-      setShowAnswer(false);
-      setStartTime(0);
-      document.body.classList.remove("right");
-      document.body.classList.remove("wrong");
-      next();
-    },
-    [next]
-  );
-
   function handleSubmit(e) {
     e.preventDefault();
     setShowAnswer(true);
@@ -44,7 +32,7 @@ const Form = ({ word, next }) => {
   useEffect(() => {
     function bindKeys(e) {
       if (e.target === inputEl.current || !showAnswer) return;
-      if (e.key === "n" || e.key === "ArrowRight") nextWord();
+      if (e.key === "n" || e.key === "ArrowRight") next();
     }
 
     window.addEventListener("keyup", bindKeys);
@@ -52,7 +40,15 @@ const Form = ({ word, next }) => {
     return () => {
       window.removeEventListener("keyup", bindKeys);
     };
-  }, [showAnswer, nextWord]);
+  }, [showAnswer, next]);
+
+  useEffect(() => {
+    setAnswer("");
+    setShowAnswer(false);
+    setStartTime(0);
+    document.body.classList.remove("right");
+    document.body.classList.remove("wrong");
+  }, [word]);
 
   return (
     <div>
