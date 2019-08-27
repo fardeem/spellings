@@ -5,7 +5,11 @@ import styles from "./Header.module.css";
 
 const Header = () => (
   <header className={styles.header}>
-    <p className={styles.logo}>Spellathon Prep</p>
+    <p className={styles.logo}>
+      <NavLink exact={true} to="/">
+        Spellathon Prep
+      </NavLink>
+    </p>
 
     <nav className={styles.nav}>
       <NavLink
