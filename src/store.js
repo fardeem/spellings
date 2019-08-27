@@ -1,16 +1,21 @@
-import React, { createContext, useReducer } from "react";
+import React, { createContext, useReducer, useEffect } from "react";
 
 import initialStore from "./initStore";
 
-const StoreContext = createContext({
-  words: [],
-  stats: {},
-  dispatch: item => {}
-});
+const StoreContext = createContext({});
 export default StoreContext;
 
 export const StoreProvider = ({ children }) => {
-  const [store, dispatch] = useReducer(reducer, sampleStore);
+  const [store, dispatch] = useReducer(reducer, initialStore, () => {
+    const localCache = localStorage.getItem("SPELLINGS_STORE");
+
+    if (localCache) return JSON.parse(localCache);
+    else return initialStore;
+  });
+
+  useEffect(() => {
+    localStorage.setItem("SPELLINGS_STORE", JSON.stringify(store));
+  }, [store]);
 
   return (
     <StoreContext.Provider value={{ ...store, dispatch }}>
