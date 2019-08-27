@@ -27,6 +27,13 @@ const Header = () => (
       >
         Stats
       </NavLink>
+      <NavLink
+        className={styles.navItem}
+        activeClassName={styles.navActive}
+        to="/words"
+      >
+        Word List
+      </NavLink>
     </nav>
   </header>
 );
