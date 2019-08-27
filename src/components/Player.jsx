@@ -11,6 +11,8 @@ const Sound = ({ word, start }) => {
     msg.pitch = 1.2;
     msg.onend = () => {
       setIsPlaying(false);
+      // @ts-ignore
+      document.querySelector("input[type=text]").focus();
     };
 
     speechSynthesis.speak(msg);
