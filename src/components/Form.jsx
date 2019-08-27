@@ -1,14 +1,16 @@
-import React, { useState, useEffect, useRef, useCallback } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
 
 import Sound from "./Player";
 
 import styles from "./Form.module.css";
+import StoreContext from "../store";
 
 const Form = ({ word, next }) => {
   const [answer, setAnswer] = useState("");
   const [showAnswer, setShowAnswer] = useState(false);
   const [startTime, setStartTime] = useState(0);
   const inputEl = useRef(null);
+  const { dispatch } = useContext(StoreContext);
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -22,10 +24,11 @@ const Form = ({ word, next }) => {
       document.body.classList.add("wrong");
     }
 
-    console.log({
+    dispatch({
       word,
       isCorrect,
-      time: Date.now() - startTime
+      speed: Date.now() - startTime,
+      date: Date.now()
     });
   }
 
@@ -84,7 +87,7 @@ const Form = ({ word, next }) => {
           </div>
 
           <div className={styles.feedbackBtnArea}>
-            <button className={styles.btn} onClick={nextWord}>
+            <button className={styles.btn} onClick={next}>
               Next
             </button>
           </div>
