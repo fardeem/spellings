@@ -32,6 +32,12 @@ function reducer(state, action) {
   const { type, value } = action;
   let { words, stats } = state;
 
+  if (type === "REMOVE_WORD") {
+    words.splice(words.indexOf(value.word), 1);
+
+    if (stats[value.word]) delete stats[value.word];
+  }
+
   if (type === "ADD_WORD") {
     words.push(value.word);
   }

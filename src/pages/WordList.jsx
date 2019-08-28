@@ -43,7 +43,15 @@ const WordList = () => {
         <ol className={styles.list}>
           {words.map((word, i) => (
             <li key={i} className={styles.listItem}>
-              {word}
+              <span>{word}</span>
+              <span
+                className={styles.cancel}
+                onClick={() =>
+                  dispatch({ type: "REMOVE_WORD", value: { word } })
+                }
+              >
+                &times;
+              </span>
             </li>
           ))}
         </ol>

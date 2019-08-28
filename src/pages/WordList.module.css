@@ -11,8 +11,20 @@
 
 .listItem {
   text-transform: capitalize;
+  padding-right: 2rem;
 }
 
 .heading {
   margin-top: 0;
+}
+
+.cancel {
+  float: right;
+  opacity: 0.2;
+  cursor: pointer;
+  transition: opacity 0.5s;
+}
+
+.cancel:hover {
+  opacity: 1;
 }
