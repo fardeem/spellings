@@ -54,6 +54,11 @@ const Form = ({ word, next }) => {
     setStartTime(0);
     document.body.classList.remove("right");
     document.body.classList.remove("wrong");
+
+    return () => {
+      document.body.classList.remove("right");
+      document.body.classList.remove("wrong");
+    };
   }, [word]);
 
   return (
