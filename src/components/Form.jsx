@@ -25,10 +25,13 @@ const Form = ({ word, next }) => {
     }
 
     dispatch({
-      word,
-      isCorrect,
-      speed: Date.now() - startTime,
-      date: Date.now()
+      type: "ADD_STAT",
+      value: {
+        word,
+        isCorrect,
+        speed: Date.now() - startTime,
+        date: Date.now()
+      }
     });
   }
 

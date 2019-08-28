@@ -2,7 +2,11 @@ import React, { createContext, useReducer, useEffect } from "react";
 
 import initialStore from "./initStore";
 
-const StoreContext = createContext({});
+const StoreContext = createContext({
+  words: [],
+  stats: {},
+  dispatch: action => {}
+});
 export default StoreContext;
 
 export const StoreProvider = ({ children }) => {
@@ -24,17 +28,23 @@ export const StoreProvider = ({ children }) => {
   );
 };
 
-function reducer(store, statToAdd) {
-  const statsOnWord = store[statToAdd.word] || [];
-  statsOnWord.push({
-    isCorrect: statToAdd.isCorrect,
-    date: statToAdd.date,
-    speed: statToAdd.speed
-  });
+function reducer(state, action) {
+  const { type, value } = action;
+  let { words, stats } = state;
 
-  const stats = Object.assign({}, store.stats, {
-    [statToAdd.word]: statsOnWord
-  });
+  if (type === "ADD_STAT") {
+    const statsByWord = stats[value.word] || [];
+    statsByWord.push({
+      date: value.date,
+      speed: value.speed,
+      isCorrect: value.isCorrect
+    });
 
-  return { ...store, stats };
+    stats = {
+      ...stats,
+      [value.word]: statsByWord
+    };
+  }
+  console.log(state);
+  return { words, stats };
 }
