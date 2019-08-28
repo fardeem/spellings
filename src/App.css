@@ -3,19 +3,20 @@
 }
 
 body {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+body {
   font-family: "Montserrat", sans-serif;
   background: url("/assets/work.png") no-repeat;
+  padding-bottom: 200px;
   background-size: 200px;
   background-position-x: center;
   background-position-y: 98%;
   min-height: 100vh;
   transition: background-color 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-
-body {
-  margin: 0;
-  padding: 0;
-  position: relative;
 }
 
 body.wrong {
