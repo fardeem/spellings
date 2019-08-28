@@ -32,6 +32,10 @@ function reducer(state, action) {
   const { type, value } = action;
   let { words, stats } = state;
 
+  if (type === "ADD_WORD") {
+    words.push(value.word);
+  }
+
   if (type === "ADD_STAT") {
     const statsByWord = stats[value.word] || [];
     statsByWord.push({
