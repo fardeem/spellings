@@ -36,6 +36,7 @@ const Practice = () => {
     }
 
     setPracticeIndex(0);
+    // eslint-disable-next-line
   }, [option, words]);
 
   function nextWord() {
