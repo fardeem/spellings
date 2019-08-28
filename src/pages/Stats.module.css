@@ -23,3 +23,29 @@
   font-size: 2rem;
   text-transform: capitalize;
 }
+
+.optionsPanel {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.optionsPanel > div {
+  max-width: 48%;
+  width: 100%;
+}
+
+.optionsPanel input {
+  border-radius: 5px;
+  width: 100%;
+}
+
+.optionsPanel select {
+  height: 54px;
+  float: right;
+  margin: 0;
+}
+
+.sortSection h3 {
+  text-align: right;
+}
