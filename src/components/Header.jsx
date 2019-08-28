@@ -32,7 +32,7 @@ const Header = () => (
         activeClassName={styles.navActive}
         to="/words"
       >
-        Word List
+        Words
       </NavLink>
     </nav>
   </header>
