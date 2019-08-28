@@ -1,28 +1,14 @@
 .detailsList {
+  padding: 0;
+  list-style-type: none;
+}
+
+.detailsList > li {
   display: flex;
-  flex-wrap: wrap;
-  margin: 0;
-  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
 }
 
-.detailsItem {
-  width: 40%;
-  letter-spacing: 0.1em;
-}
-
-.detailsItem:nth-of-type(2n) {
-  padding-left: 0.5em;
-}
-
-.detailsDesc {
-  width: 10%;
-  margin: 0;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-}
-
-.detailsItem,
-.detailsDesc {
-  padding: 1rem 0;
-  font-size: 0.8em;
+.detailsList li span:first-of-type {
+  opacity: 0.6;
 }

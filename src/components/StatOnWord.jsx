@@ -11,16 +11,24 @@ const StatOnWord = ({
 }) => (
   <>
     <p>{word}</p>
-    <dl className={styles.detailsList}>
-      <dt className={styles.detailsItem}>Attempts</dt>
-      <dd className={styles.detailsDesc}>{attempts}</dd>
-      <dt className={styles.detailsItem}>Correct</dt>
-      <dd className={styles.detailsDesc}>{correctAttempts}</dd>
-      <dt className={styles.detailsItem}>Precision</dt>
-      <dd className={styles.detailsDesc}>{Math.round(precision * 100)}%</dd>
-      <dt className={styles.detailsItem}>Avg. Speed</dt>
-      <dd className={styles.detailsDesc}>{Math.round(avgSpeed / 1000)}s</dd>
-    </dl>
+    <ul className={styles.detailsList}>
+      <li>
+        <span>Attempts</span>
+        <span>{attempts}</span>
+      </li>
+      <li>
+        <span>Correct</span>
+        <span>{correctAttempts}</span>
+      </li>
+      <li>
+        <span>Precision</span>
+        <span>{Math.round(precision * 100)}</span>
+      </li>
+      <li>
+        <span>Avg. Speed</span>
+        <span>{Math.round(avgSpeed / 1000)}</span>
+      </li>
+    </ul>
   </>
 );
 

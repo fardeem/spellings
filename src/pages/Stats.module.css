@@ -13,31 +13,40 @@
   border-radius: 5px;
   margin-bottom: 2rem;
   box-shadow: 0px 0px 50px 0px rgba(0, 0, 0, 0.1);
-  max-width: 48%;
+  max-width: 100%;
   width: 100%;
 }
 
 .item p {
   margin-top: 0;
   text-align: center;
-  font-size: 2rem;
+  font-size: 1.5rem;
   text-transform: capitalize;
+}
+
+@media (min-width: 550px) {
+  .item p {
+    font-size: 2rem;
+  }
 }
 
 .optionsPanel {
   display: flex;
   justify-content: space-between;
   margin-bottom: 2rem;
+
+  flex-direction: column;
 }
 
 .optionsPanel > div {
-  max-width: 48%;
+  max-width: 100%;
   width: 100%;
 }
 
 .optionsPanel input {
   border-radius: 5px;
   width: 100%;
+  height: 54px;
 }
 
 .optionsPanel select {
@@ -46,6 +55,22 @@
   margin: 0;
 }
 
-.sortSection h3 {
-  text-align: right;
+.optionsPanel input,
+.optionsPanel select {
+  font-size: 1rem;
+}
+
+@media (min-width: 550px) {
+  .optionsPanel {
+    flex-direction: row;
+  }
+
+  .optionsPanel > div,
+  .item {
+    max-width: 48%;
+  }
+
+  .sortSection h3 {
+    text-align: right;
+  }
 }
