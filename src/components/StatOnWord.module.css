@@ -12,3 +12,9 @@
 .detailsList li span:first-of-type {
   opacity: 0.6;
 }
+
+.empty {
+  text-align: center;
+  font-size: 1rem;
+  opacity: 0.6;
+}
