@@ -64,8 +64,6 @@ const Stats = () => {
           })
           .sort((a, b) => {
             switch (sortOption) {
-              case "ALPHABETICALLY":
-                return a.word > b.word ? 1 : -1;
               case "PRECISION":
                 return b.precision - a.precision; // Highest to lowest
               case "AVG_SPEED":
@@ -74,6 +72,8 @@ const Stats = () => {
                 return b.attempts - a.attempts;
               case "CORRECT_ATTEMPTS":
                 return b.correctAttempts - a.correctAttempts;
+              default:
+                return a.word > b.word ? 1 : -1;
             }
           })
           .map((item, i) => (
