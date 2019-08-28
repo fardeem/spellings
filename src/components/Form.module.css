@@ -2,10 +2,19 @@
   display: flex;
   align-items: center;
   margin-top: 1em;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+@media (min-width: 550px) {
+  .form {
+    flex-wrap: nowrap;
+  }
 }
 
 .input {
-  border: 0;
+  width: 100%;
+  /* max-width: 70%; */
   display: inline-block;
   border: 3px solid rgba(0, 0, 0, 0.7);
   padding: 0.6rem;
@@ -15,7 +24,7 @@
   font-family: inherit;
 
   flex: 1;
-  margin-right: 2rem;
+  margin-right: 1em;
 }
 
 .input:disabled {
@@ -28,8 +37,8 @@
 
 .btn {
   min-height: 50px;
-  padding-right: 2rem;
-  padding-left: 2rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
   background: black;
   color: white;
   cursor: pointer;

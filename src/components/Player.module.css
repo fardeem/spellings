@@ -6,9 +6,17 @@
   border: 2px solid black;
   border-radius: 50%;
   padding: 0;
-  margin-right: 2rem;
+  margin-right: 80%;
+  margin-bottom: 1em;
   cursor: pointer;
   user-select: none;
+}
+
+@media (min-width: 550px) {
+  .sound {
+    margin-right: 1em;
+    margin-bottom: 0;
+  }
 }
 
 .soundIcon {
