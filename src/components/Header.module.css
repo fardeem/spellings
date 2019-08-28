@@ -18,12 +18,20 @@
 }
 
 .navItem {
-  display: inline-block;
+  display: block;
+  text-align: right;
   text-decoration: none;
   margin-left: 2em;
   color: #00000050;
   text-transform: capitalize;
   transition: color 0.5s;
+}
+
+@media (min-width: 550px) {
+  .navItem {
+    display: inline-block;
+    text-align: left;
+  }
 }
 
 .navItem:hover,
