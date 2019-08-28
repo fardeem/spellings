@@ -1,0 +1,22 @@
+.container {
+  /* display: flex; */
+}
+
+.container > div {
+  flex: 1;
+  margin-bottom: 2rem;
+}
+
+.list {
+  font-size: 1.2rem;
+  line-height: 2;
+  column-count: 4;
+}
+
+.listItem {
+  text-transform: capitalize;
+}
+
+.heading {
+  margin-top: 0;
+}
