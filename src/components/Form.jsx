@@ -29,7 +29,7 @@ const Form = ({ word, next }) => {
       value: {
         word,
         isCorrect,
-        speed: Date.now() - startTime,
+        speed: startTime !== 0 ? Date.now() - startTime : 5000,
         date: Date.now()
       }
     });
