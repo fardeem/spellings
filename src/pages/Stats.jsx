@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 
 import StoreContext from "../store";
 
@@ -8,6 +8,8 @@ import StatOnWord from "../components/StatOnWord";
 
 const Stats = () => {
   const { words, stats } = useContext(StoreContext);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [sortOption, setSortOption] = useState("ALPHABETICALLY");
 
   return (
     <div>
@@ -18,13 +20,19 @@ const Stats = () => {
           <input
             type="text"
             className={formStyles.input}
+            onChange={e => setSearchTerm(e.target.value.trim().toLowerCase())}
             placeholder="Search..."
           />
         </div>
         <div className={styles.sortSection}>
           <h3>Sort By</h3>
 
-          <select className={formStyles.input}>
+          <select
+            value={sortOption}
+            onChange={e => setSortOption(e.target.value)}
+            className={formStyles.input}
+          >
+            <option value="ALPHABETICALLY">Alphabetically</option>
             <option value="PRECISION">Precision</option>
             <option value="AVG_SPEED">Avg. Speed</option>
             <option value="ATTEMPTS">Attemps</option>
@@ -35,6 +43,11 @@ const Stats = () => {
 
       <ul className={styles.list}>
         {words
+          .filter(word => {
+            if (!searchTerm) return true;
+            return word.includes(searchTerm);
+          })
+
           .map(word => {
             const statByWord = stats[word] || [];
             const attempts = statByWord.length;
@@ -48,6 +61,20 @@ const Stats = () => {
               }, 0) / (attempts || 1);
 
             return { word, attempts, correctAttempts, avgSpeed, precision };
+          })
+          .sort((a, b) => {
+            switch (sortOption) {
+              case "ALPHABETICALLY":
+                return a.word > b.word ? 1 : -1;
+              case "PRECISION":
+                return b.precision - a.precision; // Highest to lowest
+              case "AVG_SPEED":
+                return b.avgSpeed - a.avgSpeed;
+              case "ATTEMPTS":
+                return b.attempts - a.attempts;
+              case "CORRECT_ATTEMPTS":
+                return b.correctAttempts - a.correctAttempts;
+            }
           })
           .map((item, i) => (
             <li key={i} className={styles.item}>
