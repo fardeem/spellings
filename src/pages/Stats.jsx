@@ -25,7 +25,7 @@ const Stats = () => {
           />
         </div>
         <div className={styles.sortSection}>
-          <h3>Sort By</h3>
+          <h3>Sort by</h3>
 
           <select
             value={sortOption}
@@ -35,7 +35,7 @@ const Stats = () => {
             <option value="ALPHABETICALLY">Alphabetically</option>
             <option value="PRECISION">Precision</option>
             <option value="AVG_SPEED">Avg. Speed</option>
-            <option value="ATTEMPTS">Attemps</option>
+            <option value="ATTEMPTS">Attempts</option>
             <option value="CORRECT_ATTEMPTS">Correct</option>
           </select>
         </div>
