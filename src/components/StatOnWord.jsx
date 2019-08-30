@@ -23,7 +23,7 @@ const StatOnWord = ({
         </li>
         <li>
           <span>Precision</span>
-          <span>{Math.round(precision * 100)}</span>
+          <span>{Math.round(precision * 100)}%</span>
         </li>
         <li>
           <span>Avg. Speed</span>
