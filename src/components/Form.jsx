@@ -71,6 +71,10 @@ const Form = ({ word, next }) => {
 
         <input
           type="text"
+          autoComplete="off"
+          autoCorrect="off"
+          autoCapitalize="off"
+          spellCheck={false}
           className={styles.input}
           value={answer}
           onChange={e => setAnswer(e.target.value.trim().toLowerCase())}
