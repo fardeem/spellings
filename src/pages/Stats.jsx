@@ -56,7 +56,9 @@ const Stats = () => {
             ).length;
             const precision = correctAttempts / (attempts || 1);
             const avgSpeed =
-              statByWord.reduce((sumOfSpeed, item) => {
+              statByWord.filter(
+                ({ isCorrect }) => isCorrect
+              ).reduce((sumOfSpeed, item) => {
                 return sumOfSpeed + item.speed;
               }, 0) / (attempts || 1);
 
