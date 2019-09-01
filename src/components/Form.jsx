@@ -49,8 +49,8 @@ const Form = ({ word, next }) => {
   }, [showAnswer, next]);
 
   useEffect(() => {
-    setAnswer("");
     setShowAnswer(false);
+    setAnswer("");
     setStartTime(0);
     document.body.classList.remove("right");
     document.body.classList.remove("wrong");
@@ -99,7 +99,13 @@ const Form = ({ word, next }) => {
           </div>
 
           <div className={styles.feedbackBtnArea}>
-            <button className={styles.btn} onClick={next}>
+            <button
+              className={styles.btn}
+              onClick={() => {
+                setShowAnswer(false);
+                next();
+              }}
+            >
               Next
             </button>
           </div>
